@@ -1,0 +1,21 @@
+// Define as coordenadas iniciais para o desenho da imagem
+int x = 20;
+int y = 20;
+
+// Define o número máximo de imagens a serem desenhadas
+int maxImages = 4;
+
+// Define o número de imagens a serem desenhadas com base no valor de vida
+int numImages = (vida == 100) ? maxImages : (vida > 50) ? 3 : (vida > 25) ? 2 : (vida == 25) ? 1 : 0;
+
+// Desenha as imagens
+for (int i = 0; i < numImages; i++) {
+    g.drawImage(image, x, y, this);
+    x += 40; // Incrementa a posição x para a próxima imagem
+}
+// Se vida for menor ou igual a 0, exibe "Game Over"
+if (vida <= 0) {
+    g.setColor(Color.WHITE);
+    g.setFont(new Font("Arial", Font.PLAIN, 12));
+    g.drawString("Game Over", 300, 240);
+}
